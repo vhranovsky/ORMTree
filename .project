@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>ORMTree</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.powerflasher.fdt.core.FlashBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.powerflasher.fdt.core.FlashNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Core</name>
+			<type>2</type>
+			<locationURI>Core</locationURI>
+		</link>
+		<link>
+			<name>ORM</name>
+			<type>2</type>
+			<locationURI>ORM</locationURI>
+		</link>
+		<link>
+			<name>Tree</name>
+			<type>2</type>
+			<locationURI>Tree</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>
