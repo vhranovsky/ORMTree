@@ -1,7 +1,7 @@
 package ru.saveidea.ormtree.example.model {
 	import ru.saveidea.tree.models.TreeNodeType;
+
 	import mx.collections.ArrayCollection;
-	import ru.saveidea.ormtree.example.model.ORMTreeModel;
 
 	/**
 	 * @author antonsidorenko
@@ -10,7 +10,7 @@ package ru.saveidea.ormtree.example.model {
 	public class CourseModel extends ORMTreeModel {
 		
 		[Mapped]
-		public var title : String;
+		public var title : String = "Course Default Title";
 		
 		private var _scenes : ArrayCollection = new ArrayCollection();
 
@@ -22,18 +22,17 @@ package ru.saveidea.ormtree.example.model {
 		public function get scenes() : ArrayCollection {
 			return _scenes;
 		}
-		
+
 		override public function allowedChildTypesForList(propertyName : String) : Vector.<TreeNodeType> {
 			if (propertyName == "scenes") {
 				return new <TreeNodeType>[new TreeNodeType(SceneModel, "Scene")];
 			}
-			
+
 			return null;
 		}
-		
+
 		public function toString() : String {
 			return title;
 		}
-		
 	}
 }

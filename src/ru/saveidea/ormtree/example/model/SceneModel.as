@@ -15,10 +15,8 @@ package ru.saveidea.ormtree.example.model {
 		public var background : String;
 		[Mapped]
 		public var backgroundIsLooped : Boolean;
-		
 		[Mapped(dataType="File")]
 		public var sound : String;
-		
 		private var _elements : ArrayCollection = new ArrayCollection();
 
 		[OneToMany(indexed='true', lazy='true', isHidden='true')]
@@ -50,9 +48,9 @@ package ru.saveidea.ormtree.example.model {
 				return new <TreeNodeType>[new TreeNodeType(Element, "Element")];
 			}
 			if (propertyName == "widgets") {
-				return new <TreeNodeType>[new TreeNodeType(WidgetVideo, "WidgetVideo"),new TreeNodeType(WidgetHTMLData, "WidgetHTMLData")];
+				return new <TreeNodeType>[new TreeNodeType(WidgetVideo, "WidgetVideo"), new TreeNodeType(WidgetHTMLData, "WidgetHTMLData")];
 			}
-			
+
 			return null;
 		}
 	}

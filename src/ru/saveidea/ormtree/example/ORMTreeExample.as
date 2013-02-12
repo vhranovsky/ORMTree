@@ -1,9 +1,13 @@
 package ru.saveidea.ormtree.example {
-	import ru.saveidea.ormtree.example.model.Element;
 	import ru.saveidea.base.Document;
+	import ru.saveidea.ormtree.example.admin.AirClientAdminPanel;
 	import ru.saveidea.ormtree.example.model.CourseModel;
+	import ru.saveidea.ormtree.example.model.Element;
 	import ru.saveidea.ormtree.example.model.SceneModel;
-	import ru.saveidea.ormtree.view.ORMTreeView;
+	import ru.saveidea.ormtree.view.ORMTreeNodeView;
+	import ru.saveidea.tree.manager.TreePanel;
+	import ru.saveidea.tree.view.TreeView;
+	import ru.saveidea.tree.view.TreeViewEvent;
 
 	/**
 	 * @author antonsidorenko
@@ -21,15 +25,33 @@ package ru.saveidea.ormtree.example {
 
 			c.scenes.addItem(m);
 			c.scenes.addItem(m2);
-			
+
 			var e : Element = new Element();
-			
+
 			m.elements.addItem(e);
 
-			var ormTreeView : ORMTreeView = new ORMTreeView();
-			addChild(ormTreeView);
+			// var ormTreeView : ORMTreeView = new ORMTreeView();
+			// addChild(ormTreeView);
 
-			ormTreeView.data = c;
+			// ormTreeView.data = c;
+			
+			var ap : AirClientAdminPanel = new AirClientAdminPanel(CourseModel);
+			addChild(ap);
+			
+			return;
+			
+			var p : TreePanel = new TreePanel(ORMTreeNodeView);
+			addChild(p);
+			
+			p.data = c;
+			return;
+
+			var t : TreeView = new TreeView(ORMTreeNodeView);
+			t.addEventListener(TreeViewEvent.NODE_SELECT, trace);
+			t.addEventListener(TreeViewEvent.NODE_ADD, trace);
+			addChild(t);
+
+			t.data = c;
 		}
 
 		private function makeSceneModel(title : String) : SceneModel {

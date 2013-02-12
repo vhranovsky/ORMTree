@@ -1,4 +1,4 @@
-package ru.saveidea.ormtree.view {
+package ru.saveidea.tree.view {
 	import ru.saveidea.tree.view.TreeNodeSkinBase;
 	import ru.saveidea.tree.view.TreeNodeViewBase;
 	import ru.saveidea.tree.view.TreeNodeViewIcons;
@@ -13,7 +13,7 @@ package ru.saveidea.ormtree.view {
 	/**
 	 * @author antonsidorenko
 	 */
-	public class ORMTreeNodeSkin extends TreeNodeSkinBase {
+	public class TreeNodeSkinDefault extends TreeNodeSkinBase {
 		
 		protected var textfield : TextField;
 		private var dtf : TextFormat;
@@ -21,7 +21,7 @@ package ru.saveidea.ormtree.view {
 		private var folderIcon : TreeNodeViewIcons;
 		private var lastClickTime : uint;
 
-		public function ORMTreeNodeSkin(view : TreeNodeViewBase) {
+		public function TreeNodeSkinDefault(view : TreeNodeViewBase) {
 			super(view);
 
 			folderIcon = new TreeNodeViewIcons();
@@ -64,14 +64,8 @@ package ru.saveidea.ormtree.view {
 			updateIconCollapseState();
 		}
 
-		private function getTitle() : String {
-			if (data is ORMTreeNodeData) {
-				return (data as ORMTreeNodeData).label;
-			} else {
-				return String(data);
-			}
-			
-			return null;
+		private function getTitle() : String {			
+			return String(data);
 		}
 
 		override public function changeState(state : String) : void {
